@@ -1,0 +1,9 @@
+<h3>Top Fixtures</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let fixture of fixtures" class="col-1-4"
+    routerLink="/detail/{{fixture.id}}">
+    <div class="module fixture">
+      <h5>{{fixture.localTeam}}</h5> vs <h5>{{fixture.awayTeam}}</h5>
+    </div>
+  </a>
+</div>

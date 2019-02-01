@@ -1,0 +1,12 @@
+<h2>FIXTURES</h2>
+
+<ul class="fixtures">
+  <li *ngFor="let fixture of fixtures" [class.selected]="fixture === selectedFixture" 
+    (click)="onSelect(fixture)">
+    <a routerLink="/detail/{{fixture.id}}">
+      <span class="badge">{{fixture.localTeam}} vs {{fixture.awayTeam}}</span>
+    </a>
+  </li>
+</ul>
+
+<!-- <app-fixture-detail [fixture]="selectedFixture"></app-fixture-detail> -->

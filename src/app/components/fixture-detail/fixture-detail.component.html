@@ -1,0 +1,13 @@
+<div class="detail" *ngIf="fixture">
+  <h2>{{fixture.localTeam | uppercase}} vs {{fixture.awayTeam | uppercase}}</h2>
+  <div><span>id: </span>{{fixture.id}}</div>
+  <div>
+    <label>Local Team:
+      <input [(ngModel)]="fixture.goalsLocalTeam">
+    </label>
+    <label>Away Team:
+      <input [(ngModel)]="fixture.goalsAwayTeam">
+    </label>
+  </div>
+  <button (click)="goBack()">go back</button>
+</div>
