@@ -1,40 +1,35 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError,  tap } from 'rxjs/operators';
 
-import { Fixture } from '../models/fixture';
-
-import { FIXTURES } from '../data/mock-fixtures';
+import { Team } from '../models/team';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FixtureService {
+export class TeamService {
 
-  private fixturesUrl = 'api/fixtures';  // URL to web api
-  
+  private teamsUrl = 'api/teams';
 
   constructor(private http: HttpClient) { }
 
-  getFixtures():  Observable<Fixture[]> {
-    // return of(FIXTURES);
-    return this.http.get<Fixture[]>(this.fixturesUrl)
+  getTeams():  Observable<Team[]> {
+    return this.http.get<Team[]>(this.teamsUrl)
       .pipe(
-        tap(_ => console.log('fetched fixtures')),
-        catchError(this.handleError('getFixtures', []))
+        tap(_ => console.log('fetched teams')),
+        catchError(this.handleError('getTeams', []))
       );
   }
 
-  getFixture(id: number): Observable<Fixture> {
-    const url = '${this.fixturesUrl}/${id}';
-    return this.http.get<Fixture>(url).pipe(
-      tap(_ => console.log('fetched fixture id=${id}')),
-      catchError(this.handleError<Fixture>(`getFixture id=${id}`))
+  getTeam(id: number): Observable<Team> {
+    const url = '${this.teamsUrl}/${id}';
+    return this.http.get<Team>(url).pipe(
+      tap(_ => console.log('fetched team id=${id}')),
+      catchError(this.handleError<Team>(`getTeam id=${id}`))
     );
+    // return of(FIXTURES.find(fixture => fixture.id === id));
   }
-
-  
 
   /**
    * Handle Http operation that failed.

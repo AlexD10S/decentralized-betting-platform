@@ -10,16 +10,26 @@ import { FixturesComponent } from './components/fixtures/fixtures.component';
 import { FixtureDetailComponent } from './components/fixture-detail/fixture-detail.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { InMemoryDataService }  from './services/in-memory-data.service';
+import { TeamsComponent } from './components/teams/teams.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTabsModule, MatCardModule,MatRadioModule, MatInputModule,MatButtonModule } from '@angular/material';
 
 @NgModule({
   declarations: [
     AppComponent,
     FixturesComponent,
     FixtureDetailComponent,
-    DashboardComponent
+    DashboardComponent,
+    TeamsComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
+    MatTabsModule,
+    MatCardModule,
+    MatRadioModule,
+    MatInputModule,
+    MatButtonModule,
     FormsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(

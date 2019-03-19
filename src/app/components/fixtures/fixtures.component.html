@@ -1,12 +1,35 @@
 <h2>FIXTURES</h2>
 
-<ul class="fixtures">
+<!-- <ul class="fixtures">
   <li *ngFor="let fixture of fixtures" [class.selected]="fixture === selectedFixture" 
     (click)="onSelect(fixture)">
     <a routerLink="/detail/{{fixture.id}}">
-      <span class="badge">{{fixture.localTeam}} vs {{fixture.awayTeam}}</span>
+      <span class="badge">{{getTeam(fixture.localTeam)}} vs {{getTeam(fixture.awayTeam)}}</span>
     </a>
   </li>
-</ul>
-
+</ul> -->
+<div class="grid grid-pad">
+  <a *ngFor="let fixture of fixtures" 
+    routerLink="/detail/{{fixture.id}}">
+    <mat-radio-group>
+        <mat-radio-button value="1"> {{getTeam(fixture.localTeam)}} </mat-radio-button>
+        <mat-radio-button value="2"> Draw </mat-radio-button>
+        <mat-radio-button value="3"> {{getTeam(fixture.awayTeam)}} </mat-radio-button>
+    </mat-radio-group>
+    <mat-card class="module fixture">
+      <mat-card-title>{{fixture.date}}</mat-card-title>
+      <mat-card-subtitle> {{getTeam(fixture.localTeam)}}</mat-card-subtitle> 
+      <img mat-card-avatar src={{getLogo(fixture.localTeam)}}>
+      <mat-card-subtitle> vs </mat-card-subtitle>
+      <mat-card-subtitle> {{getTeam(fixture.awayTeam)}}</mat-card-subtitle>
+      <img mat-card-avatar src={{getLogo(fixture.awayTeam)}}>
+    </mat-card>
+    <!-- <mat-form-field
+      [hideRequiredMarker]="options.value.hideRequired"
+      [floatLabel]="options.value.floatLabel">
+    <input matInput placeholder="Input the amount of money" required>
+    <button mat-fab>Bet</button>
+  </mat-form-field> -->
+  </a>
+</div>
 <!-- <app-fixture-detail [fixture]="selectedFixture"></app-fixture-detail> -->

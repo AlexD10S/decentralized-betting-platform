@@ -1,9 +1,36 @@
+<body>
 <h3>Top Fixtures</h3>
 <div class="grid grid-pad">
-  <a *ngFor="let fixture of fixtures" class="col-1-4"
-    routerLink="/detail/{{fixture.id}}">
-    <div class="module fixture">
-      <h5>{{fixture.localTeam}}</h5> vs <h5>{{fixture.awayTeam}}</h5>
-    </div>
+  <!-- <a *ngFor="let fixture of fixtures" class="col-1-4"
+    routerLink="/detail/{{fixture.id}}"> -->
+    <a *ngFor="let fixture of fixtures" class="col-1-4">
+    
+    <mat-card class="match-card">
+      <mat-card-title>{{fixture.date}}</mat-card-title>
+      
+      <mat-card-content> 
+        <mat-card-subtitle> {{getTeam(fixture.localTeam)}}</mat-card-subtitle> 
+        <img mat-card-avatar src={{getLogo(fixture.localTeam)}}>
+        <mat-card-subtitle class="vs"> vs </mat-card-subtitle>
+        <mat-card-subtitle> {{getTeam(fixture.awayTeam)}}</mat-card-subtitle>
+        <img mat-card-avatar src={{getLogo(fixture.awayTeam)}}>
+      </mat-card-content>
+      <form>
+        <mat-radio-group>
+            <mat-radio-button value="1"> {{getTeam(fixture.localTeam)}} </mat-radio-button>
+            <mat-radio-button value="2"> Draw </mat-radio-button>
+            <mat-radio-button value="3"> {{getTeam(fixture.awayTeam)}} </mat-radio-button>
+        </mat-radio-group>
+        <mat-form-field>
+            <input matInput placeholder="Amount" type="number">
+            <span matPrefix>ETH&nbsp;</span>
+        </mat-form-field>
+        <button class="bet-button" (click)="bet()">Bet</button>
+        
+      </form>
+      
+    </mat-card>
+    
   </a>
 </div>
+</body>

@@ -1,0 +1,14 @@
+@import '~@angular/material/theming';
+
+$primary-color: #5CDB95;
+$primary-color-dark: #379683;
+$primary-color-light: #8EE4AF;
+$primary-color-text:   #EDF5E1;
+$primary-accent : #05386B;
+$divider-color: #05386B;
+$primary-warn   : mat-palette($mat-red);
+$my-theme: mat-light-theme(
+    $primary-color,
+    $primary-accent,
+    $primary-warn
+);

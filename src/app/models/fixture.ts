@@ -1,7 +1,9 @@
 export class Fixture {
     id: number;
-    localTeam: string;
-    awayTeam: string;
-    goalsLocalTeam: number;
-    goalsAwayTeam: number;
+    localTeam: number;
+    awayTeam: number;
+    localVictory: number;
+    awayVictory: number;
+    draw: number;
+    date: string;
 }

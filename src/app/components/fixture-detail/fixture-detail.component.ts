@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { Fixture } from '../../models/fixture';
 import { FixtureService } from '../../services/fixture.service';
 
+
 @Component({
   selector: 'app-fixture-detail',
   templateUrl: './fixture-detail.component.html',
@@ -29,5 +30,7 @@ export class FixtureDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  
 
 }

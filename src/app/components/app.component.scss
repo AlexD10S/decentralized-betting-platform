@@ -1,7 +1,8 @@
 h1 {
     font-size: 1.2em;
-    color: #999;
-    margin-bottom: 0;
+    color: #05386B;
+    margin-top: 10px;
+    margin-bottom: 25px;
   }
   h2 {
     font-size: 2em;
@@ -11,22 +12,48 @@ h1 {
   nav {
     text-align: center;
   }
-  nav a {
-    padding: 5px 10px;
-    text-decoration: none;
-    margin-top: 10px;
-    margin-right: 10px;
-    display: inline-block;
-    background-color: #eee;
-    border-radius: 4px;
+
+  .mat-tab-group.mat-primary .mat-ink-bar
+  {
+    background-color: #f46500;
+    color:  #f46500;
+}
+.mat-tab-group {
+    background-color: #4d7701 !important;
+    color: #f4f0f4;
+    height: 85%; 
   }
-  nav a:visited, a:link {
-    color: #607d8b;
+  .mat-tab-label{
+    // background-color: #edf5ed;
+    color: #f4f0f4 !important;
+    font-weight: bold;
+    font-style: initial;
   }
-  nav a:hover {
-    color: #039be5;
-    background-color: #cfd8dc;
+  .mat-tab-lavel-active{
+    color: #181524 !important;
   }
-  nav a.active {
-    color: #039be5;
-  }
+  // mat-tab-group{
+  //   background-color: #05386B;
+  //   color: #edf5ed
+    
+  // }
+  
+  // nav a {
+  //   padding: 5px 10px;
+  //   text-decoration: none;
+  //   margin-top: 10px;
+  //   margin-right: 10px;
+  //   display: inline-block;
+  //   background-color: #eee;
+  //   border-radius: 4px;
+  // }
+  // nav a:visited, a:link {
+  //   color: #607d8b;
+  // }
+  // nav a:hover {
+  //   color: #039be5;
+  //   background-color: #cfd8dc;
+  // }
+  // nav a.active {
+  //   color: #039be5;
+  // }
