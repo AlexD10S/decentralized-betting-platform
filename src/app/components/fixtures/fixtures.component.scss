@@ -1,5 +1,11 @@
 /* DashboardComponent's private CSS styles */
-
+.mat-toolbar{
+  background-color: #4d7701;
+  color: #f4f0f4;
+}
+.title{
+  float: center;
+}
 a {
   text-decoration: none;
 }
@@ -24,16 +30,56 @@ h4 {
 .module {
   padding: 20px;
   text-align: center;
-  color: #eee;
-  max-height: 240px;
   min-width: 240px;
-  background-color: #607d8b;
+  color: #f46500;
+  background-color: #f4f0f4;
   border-radius: 2px;
+  margin-bottom: 20px;
 }
 .module:hover {
-  background-color: #eee;
   cursor: pointer;
-  color: #607d8b;
+  color: #4d7701;
+}
+.mat-card-title{
+  text-align: center;
+}
+.mat-grid-list{
+  text-align: start;
+
+}
+.mat-radio-button .mat-accent .mat-radio-inner-circle{
+  color: #4d7701;
+}
+.mat-grid-tile{
+  font-size: 50px;
+  color: #000000;
+}
+.chart {
+  height: 100px;
+  width: 200px;
+}
+
+
+.vs{
+  font-size: 60px;
+}
+
+.mat-radio-group{
+  float: left;
+  width: 30%;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+.mat-form-field{
+  float:center;
+  width: 40%;
+}
+.bet-button{
+  color: #4d7701;
+  margin-right: 10%;
+  margin-top: 22px;
+  float: right;
+  width: 20%;
 }
 .grid-pad {
   padding: 10px 0;

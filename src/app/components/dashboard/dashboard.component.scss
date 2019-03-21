@@ -1,7 +1,10 @@
 /* DashboardComponent's private CSS styles */
-body{
+.mat-toolbar{
   background-color: #4d7701;
-  
+  color: #f4f0f4;
+}
+.title{
+  float: center;
 }
 [class*='col-'] {
     float: left;

@@ -1,0 +1,10 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+      <span class="title">Teams</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-grid-list cols="4" rowspan="5" rowHeight="100px">
+  <a *ngFor="let team of teams">
+    <mat-grid-tile><img src={{team.logo}}><br> {{team.name}}</mat-grid-tile>
+  </a>
+</mat-grid-list>
