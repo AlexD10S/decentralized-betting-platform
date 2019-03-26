@@ -4,7 +4,8 @@
   color: #f4f0f4;
 }
 .title{
-  float: center;
+  flex: 1 1 auto;
+  text-align: center;
 }
 a {
   text-decoration: none;
@@ -54,14 +55,18 @@ h4 {
   font-size: 50px;
   color: #000000;
 }
-.chart {
-  height: 100px;
-  width: 200px;
-}
 
 
 .vs{
   font-size: 60px;
+}
+.chart{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bettingForm{
+  margin-top: -15%;
 }
 
 .mat-radio-group{

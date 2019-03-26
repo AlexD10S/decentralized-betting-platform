@@ -1,7 +1,12 @@
 .mat-toolbar{
     background-color: #4d7701;
     color: #f4f0f4;
+    text-align: center;
   }
   .title{
-    float: center;
+    flex: 1 1 auto;
+    text-align: center;
   }
+//   .title{
+//     float: center;
+//   }

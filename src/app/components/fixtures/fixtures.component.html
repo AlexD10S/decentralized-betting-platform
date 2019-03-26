@@ -13,14 +13,18 @@
           
           <mat-grid-tile><img src={{getLogo(fixture.awayTeam)}}></mat-grid-tile>
       </mat-grid-list>
-      <!-- <app-betting-chart class="chart"></app-betting-chart>  -->
+      
       <mat-grid-list cols="2" rowHeight="80px">
           <mat-grid-tile>{{getTeam(fixture.localTeam)}}</mat-grid-tile> 
           <mat-grid-tile>{{getTeam(fixture.awayTeam)}}</mat-grid-tile>
       </mat-grid-list>
+
+        <div class="chart">
+            <app-betting-chart ></app-betting-chart>
+        </div>
       
 
-      <form>
+      <form class="bettingForm">
         <mat-radio-group>
             <mat-radio-button value="1"> {{getTeam(fixture.localTeam)}} </mat-radio-button>
             <mat-radio-button value="2"> Draw </mat-radio-button>

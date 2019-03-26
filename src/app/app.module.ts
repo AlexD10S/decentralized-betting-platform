@@ -10,9 +10,12 @@ import { FixturesComponent } from './components/fixtures/fixtures.component';
 import { FixtureDetailComponent } from './components/fixture-detail/fixture-detail.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { InMemoryDataService }  from './services/in-memory-data.service';
-import { TeamsComponent } from './components/teams/teams.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTabsModule, MatCardModule,MatRadioModule, MatInputModule,MatButtonModule } from '@angular/material';
+import { MatTabsModule, MatCardModule,MatRadioModule, MatInputModule,MatButtonModule,MatToolbarModule,MatGridListModule, MatDialogModule } from '@angular/material';
+import { ChartsModule } from 'ng2-charts';
+import { BettingChartComponent } from './components/fixtures/betting-chart/betting-chart.component';
+import { TeamsComponent } from './components/teams/teams.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import { MatTabsModule, MatCardModule,MatRadioModule, MatInputModule,MatButtonMo
     FixturesComponent,
     FixtureDetailComponent,
     DashboardComponent,
-    TeamsComponent
+    BettingChartComponent,
+    TeamsComponent,
+    AboutComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -30,8 +35,12 @@ import { MatTabsModule, MatCardModule,MatRadioModule, MatInputModule,MatButtonMo
     MatRadioModule,
     MatInputModule,
     MatButtonModule,
+    MatToolbarModule,
+    MatGridListModule,
+    MatDialogModule,
     FormsModule,
     HttpClientModule,
+    ChartsModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     ),

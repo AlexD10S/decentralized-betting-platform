@@ -4,7 +4,8 @@
   color: #f4f0f4;
 }
 .title{
-  float: center;
+  flex: 1 1 auto;
+  text-align: center;
 }
 [class*='col-'] {
     float: left;

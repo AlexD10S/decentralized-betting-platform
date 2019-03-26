@@ -4,6 +4,8 @@ import { Team } from '../../models/team';
 import { FixtureService } from '../../services/fixture.service';
 import { TeamService } from '../../services/team.service';
 
+
+
 @Component({
   selector: 'app-fixtures',
   templateUrl: './fixtures.component.html',
@@ -47,5 +49,13 @@ export class FixturesComponent implements OnInit {
   getLogo (teamId: number ): string {
     return this.teams.find(x=>x.id == teamId).logo
   }
+
+  // openChart(fixture: Fixture){
+  //   const dialogRef = this.dialog.open(BettingChartComponent);
+
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log(`Dialog result: ${result}`);
+  //   });
+  // }
 
 }
