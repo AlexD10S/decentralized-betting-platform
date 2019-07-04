@@ -3,6 +3,8 @@ import { Fixture } from '../../models/fixture';
 import { Team } from '../../models/team';
 import { FixtureService } from '../../services/fixture.service';
 import { TeamService } from '../../services/team.service';
+import { EthcontractService } from '../../services/ethcontract.service';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 
 
@@ -15,16 +17,25 @@ export class FixturesComponent implements OnInit {
 
   fixtures: Fixture [];
   teams : Team [];
+  public formGroup: FormGroup;
   //No longer used
   // selectedFixture: Fixture;
 
   constructor(
+    private fb: FormBuilder,
     private fixtureService: FixtureService,
+    private ethContractService: EthcontractService,
     private teamService: TeamService) { }
 
   ngOnInit() {
     this.getFixtures();
     this.getTeams();
+    this.formGroup = this.fb.group({
+      betSelection: ['', [Validators.required]],
+      betAmount: ['', [Validators.required]]
+    });
+
+    
     //this.selectedFixture = FIXTURES[0]
   }
 
@@ -37,6 +48,7 @@ export class FixturesComponent implements OnInit {
     this.fixtureService.getFixtures()
       .subscribe(fixtures => this.fixtures = fixtures)
   }
+  
 
   getTeams(): void{
     this.teamService.getTeams()
@@ -47,7 +59,7 @@ export class FixturesComponent implements OnInit {
     return this.teams.find(x=>x.id == teamId).name
   }
   getLogo (teamId: number ): string {
-    return this.teams.find(x=>x.id == teamId).logo
+      return this.teams.find(x=>x.id == teamId).logo
   }
 
   // openChart(fixture: Fixture){
@@ -57,5 +69,14 @@ export class FixturesComponent implements OnInit {
   //     console.log(`Dialog result: ${result}`);
   //   });
   // }
+  bet(fixture: Fixture){
+    this.ethContractService.bet(fixture.id,
+      this.formGroup.get('betSelection').value, 
+      this.formGroup.get('betAmount').value);
+    //this.ethContractService.getAccountInfo();
+    // this.snackBar.open('Bet successfully', 'Done', {
+    //   duration: 2000,
+    // });
+  }
 
 }

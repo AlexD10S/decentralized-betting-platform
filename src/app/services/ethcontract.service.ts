@@ -16,7 +16,7 @@ let tokenAbi = require('../../../build/contracts/Betting.json');
 export class EthcontractService {
   private web3Provider = window.web3
   public contracts;
-  address: string;
+  private instanceBetting;
   private weiConversion = 1000000000000000000;
   private amountHome = 0;
 
@@ -31,6 +31,9 @@ export class EthcontractService {
     this.contracts.setProvider(this.web3Provider);
     // this.contracts.deployed()
     window.web3 = new Web3(this.web3Provider);
+    // this.contracts.deployed().then(function(instance) {
+    //   this.instanceBetting = instance;
+    // });
     // this.contracts.deployed().then(function(instance){
     //   console.log("instance")
     //   console.log(instance.address);
@@ -52,39 +55,58 @@ export class EthcontractService {
     })
   }
 
- getAmountHome(_matchSelected: number){
-  return fromPromise(
-     this.contracts.deployed().then(function(instance) {
+  // test(_matchSelected: number){
+  //   console.log("TEST");
+  //     this.contracts.deployed().then(function(instance) {
+  //       console.log(instance);
+  //       instance.AmountHome(_matchSelected,(err, res)=>{
+  //         console.log(""+ res);
+  //         return res;
+  //     });
+  //   });
+
+  // }
+
+  getAmountHome(_matchSelected: number){
+    var context = this;
+    
+    let promise = new Promise(function(resolve,reject){
+      context.contracts.deployed().then(function(instance) {
         instance.AmountHome(_matchSelected,(err, res)=>{
-          console.log("...."+ res);
-          return res;
-        })
-      })
-      );
-
-  }
-  getAmountAway(_matchSelected: number){
-    return fromPromise(
-    this.contracts.deployed().then(function(instance) {
-      instance.AmountAway(_matchSelected,(err, res)=>{
-        console.log("----"+ res);
-        return res;
-      });
+          resolve(res);
     })
-    );
-
-  }
-  getAmountDraw(_matchSelected: number){
-    return fromPromise(
-      this.contracts.deployed().then(function(instance) {
-        instance.AmountDraw(_matchSelected,(err, res)=>{
-          console.log(""+ res);
-          return res;
+   })
     });
-  })
-  );
-  
+    return promise;
   }
+      
+  getAmountAway(_matchSelected: number){
+    var context = this;
+    let promise = new Promise(function(resolve,reject){
+      context.contracts.deployed().then(function(instance) {
+        instance.AmountAway(_matchSelected,(err, res)=>{
+          resolve(res);
+    })
+   })
+    });
+    return promise;
+  }
+
+
+  getAmountDraw(_matchSelected: number){
+    var context = this;
+    let promise = new Promise(function(resolve,reject){
+      context.contracts.deployed().then(function(instance) {
+        console.log(instance);
+        instance.AmountDraw(_matchSelected,(err, res)=>{
+          resolve(res);
+    })
+   })
+    });
+    return promise;
+  }
+  
+
 
   // checkIfPlayerExists(): Observable<Boolean>{
   //   window.web3.eth.getAccounts((error, accounts) => {

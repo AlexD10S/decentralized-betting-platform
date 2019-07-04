@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
@@ -16,6 +16,7 @@ import { ChartsModule } from 'ng2-charts';
 import { BettingChartComponent } from './components/fixtures/betting-chart/betting-chart.component';
 import { TeamsComponent } from './components/teams/teams.component';
 import { AboutComponent } from './components/about/about.component';
+
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { AboutComponent } from './components/about/about.component';
     MatGridListModule,
     MatDialogModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     ChartsModule,
     HttpClientInMemoryWebApiModule.forRoot(
