@@ -50,8 +50,6 @@ export class DashboardComponent implements OnInit {
     this.fixtures = allFixtures.slice(1, 5);
     var bets: Bet [] = [new Bet(), new Bet(), new Bet()];
     for (let fixture of this.fixtures) {
-      console.log("special");
-      console.log(fixture);
       this.ethContractService.getAmountHome(fixture.id)
       .then(res => {
         bets[fixture.id - 1].amountHome = (+res) / this.weiConversion; 
@@ -60,9 +58,7 @@ export class DashboardComponent implements OnInit {
           this.ethContractService.getAmountDraw(fixture.id).then(res => {
             bets[fixture.id - 1].amountDraw = (+res) / this.weiConversion;
            
-            console.log(bets);
             this.totalBetInMatch[fixture.id] = bets[fixture.id - 1].amountHome+bets[fixture.id - 1].amountAway+bets[fixture.id - 1].amountDraw;
-            console.log(this.totalBetInMatch);
           });
       });
       });

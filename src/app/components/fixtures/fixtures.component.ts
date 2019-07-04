@@ -70,9 +70,13 @@ export class FixturesComponent implements OnInit {
   //   });
   // }
   bet(fixture: Fixture){
+    console.log(fixture);
+    console.log(this.formGroup.get('betSelection').value);
+    console.log(this.formGroup.get('betAmount').value);
     this.ethContractService.bet(fixture.id,
       this.formGroup.get('betSelection').value, 
       this.formGroup.get('betAmount').value);
+
     //this.ethContractService.getAccountInfo();
     // this.snackBar.open('Bet successfully', 'Done', {
     //   duration: 2000,
