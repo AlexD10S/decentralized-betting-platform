@@ -97,7 +97,6 @@ export class EthcontractService {
     var context = this;
     let promise = new Promise(function(resolve,reject){
       context.contracts.deployed().then(function(instance) {
-        console.log(instance);
         instance.AmountDraw(_matchSelected,(err, res)=>{
           resolve(res);
     })

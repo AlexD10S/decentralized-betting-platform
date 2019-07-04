@@ -1,5 +1,5 @@
 export class Bet {
-    amountHome: string;
-    amountAway: string;
-    amountDraw: string;
+    amountHome: number;
+    amountAway: number;
+    amountDraw: number;
 }

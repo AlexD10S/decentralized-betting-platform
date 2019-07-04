@@ -25,6 +25,7 @@
             <mat-radio-button value="2"> Draw </mat-radio-button>
             <mat-radio-button value="3"> {{getTeam(fixture.awayTeam)}} </mat-radio-button>
         </mat-radio-group>
+        <h5>Total amount in the match: {{totalBetInMatch[fixture.id]}} ETH</h5>
         <mat-form-field>
             <input matInput formControlName="betAmount" placeholder="Amount" type="number">
             <span matPrefix>ETH&nbsp;</span>

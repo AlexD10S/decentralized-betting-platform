@@ -49,12 +49,8 @@ export class BettingChartComponent implements OnInit {
         amount2 = (+res) / this.weiConversion;
         this.ethContractService.getAmountDraw(this.data.id).then(res => {
           amount3 = (+res) / this.weiConversion;
-          console.log("match:"+this.data.id);
-          console.log("Home:"+amount1 + " Draaw:"+amount3+"Away:"+amount2);
           this.totalBetInMatch = amount1+amount2+amount3;
-          console.log(this.totalBetInMatch);
           if(this.totalBetInMatch > 0){
-            console.log(this.data.id);
             var percentAmount1 = (amount1/this.totalBetInMatch) * 100;
             var percentAmount2 = (amount2/this.totalBetInMatch) * 100;
             var percentAmount3 = (amount3/this.totalBetInMatch) * 100;

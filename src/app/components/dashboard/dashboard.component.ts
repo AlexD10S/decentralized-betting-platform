@@ -5,6 +5,7 @@ import { Fixture } from '../../models/fixture';
 import { FixtureService } from '../../services/fixture.service';
 import { EthcontractService } from '../../services/ethcontract.service';
 import { Team } from '../../models/team';
+import { Bet } from '../../models/bet';
 import { TeamService } from '../../services/team.service';
 // import {MatSnackBar} from '@angular/material';
 
@@ -18,6 +19,9 @@ export class DashboardComponent implements OnInit {
   fixtures: Fixture[] = [];
   teams: Team[] = [];
   public formGroup: FormGroup;
+
+  private weiConversion = 1000000000000000000;
+  totalBetInMatch = [0,0,0,0,0];
 
   constructor(
     private fb: FormBuilder,
@@ -33,11 +37,36 @@ export class DashboardComponent implements OnInit {
       betSelection: ['', [Validators.required]],
       betAmount: ['', [Validators.required]]
     });
+
+    
   }
 
   getFixtures(): void {
     this.fixtureService.getFixtures()
-      .subscribe(fixtures => this.fixtures = fixtures.slice(1, 5));
+      .subscribe(fixtures => this.getSpecialFixtures(fixtures));
+  }
+
+  getSpecialFixtures(allFixtures){
+    this.fixtures = allFixtures.slice(1, 5);
+    var bets: Bet [] = [new Bet(), new Bet(), new Bet()];
+    for (let fixture of this.fixtures) {
+      console.log("special");
+      console.log(fixture);
+      this.ethContractService.getAmountHome(fixture.id)
+      .then(res => {
+        bets[fixture.id - 1].amountHome = (+res) / this.weiConversion; 
+        this.ethContractService.getAmountAway(fixture.id).then(res => {
+          bets[fixture.id - 1].amountAway = (+res) / this.weiConversion;
+          this.ethContractService.getAmountDraw(fixture.id).then(res => {
+            bets[fixture.id - 1].amountDraw = (+res) / this.weiConversion;
+           
+            console.log(bets);
+            this.totalBetInMatch[fixture.id] = bets[fixture.id - 1].amountHome+bets[fixture.id - 1].amountAway+bets[fixture.id - 1].amountDraw;
+            console.log(this.totalBetInMatch);
+          });
+      });
+      });
+    }
   }
 
   getTeams(): void{
