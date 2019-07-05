@@ -55,17 +55,10 @@ export class EthcontractService {
     })
   }
 
-  // test(_matchSelected: number){
-  //   console.log("TEST");
-  //     this.contracts.deployed().then(function(instance) {
-  //       console.log(instance);
-  //       instance.AmountHome(_matchSelected,(err, res)=>{
-  //         console.log(""+ res);
-  //         return res;
-  //     });
-  //   });
+  //TODO
+  distributePrize(_matchSelected: number , _resultMatch: number){
 
-  // }
+  }
 
   getAmountHome(_matchSelected: number){
     var context = this;
