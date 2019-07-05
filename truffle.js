@@ -6,7 +6,7 @@ var ropstenWallet = Wallet.fromPrivateKey(ropstenPrivateKey);
 var ropstenProvider = new WalletProvider(ropstenWallet, "https://ropsten.infura.io/v3/keyfrominfura");
 
 var HDWalletProvider = require("truffle-hdwallet-provider");
-var provider = new HDWalletProvider("privatekey", "https://ropsten.infura.io/v3/d798eff4678a4b218286fcd814485c72");
+var provider = new HDWalletProvider("privatekey", "https://ropsten.infura.io/v3/keyfrominfura");
 
 module.exports = {
   // See <http://truffleframework.com/docs/advanced/configuration>
