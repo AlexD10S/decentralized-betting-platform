@@ -34,7 +34,7 @@ For security reasons the truffle.js is without the real data here.
 Then compile
 truffle compile
 And migrate the contract on the Ropsten Test network:
-truffle migrate —-reset — network ropsten
+truffle migrate —-reset —network ropsten
 or 
 truffle deploy --network ropsten
 

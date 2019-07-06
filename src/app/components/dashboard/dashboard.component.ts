@@ -47,7 +47,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getSpecialFixtures(allFixtures){
-    this.fixtures = allFixtures.slice(1, 5);
+    this.fixtures = allFixtures.slice(0, 4);
     var bets: Bet [] = [new Bet(), new Bet(), new Bet()];
     for (let fixture of this.fixtures) {
       this.ethContractService.getAmountHome(fixture.id)
